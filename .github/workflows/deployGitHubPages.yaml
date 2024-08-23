@@ -18,7 +18,7 @@ jobs:
         dotnet-version: '8.0'
 
     - name: Publish .NET
-      run: dotnet publish szalapski.github.io -c Release -o release --nologo
+      run: dotnet publish szalapski.github.io.csproj -c Release -o release --nologo
 
     # add .nojekyll file to tell GitHub pages to allow files and folders starting with an underscore)
     - name: Add .nojekyll file
