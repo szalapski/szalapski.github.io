@@ -1,0 +1,37 @@
+﻿@page "/videos"
+@page "/videos/{videoId}"
+@using szalapski.github.io.Components
+
+@inject HttpClient client
+
+<PageTitle>Weather</PageTitle>
+
+
+@if (VideoId is null){
+    <h1>All videos</h1>
+
+    <ol>
+    @foreach (string id  in VideoIds)
+    {
+        <li><a href="videos/@id">@id</a></li>
+    }
+    </ol>
+}
+else {
+    <VideoIframe Id="@VideoId"/>
+}
+
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        VideoIds = await client.GetFromJsonAsync<IEnumerable<string>>("videos.txt") ?? [];
+    }
+
+    [Parameter]
+    public string? VideoId { get; init; } = null;
+
+    private IEnumerable<string> VideoIds { get; set; } = [];
+
+}
