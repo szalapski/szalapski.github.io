@@ -1,10 +1,10 @@
-﻿@page "/videos"
-@page "/videos/{videoId}"
+﻿@page "/?videos"
+@page "/?videos/{videoId}"
 @using szalapski.github.io.Components
 
 @inject HttpClient client
 
-<PageTitle>Szalaspki.github.io videos</PageTitle>
+<PageTitl>Szalaspki.github.io videos</PageTitl/e>
 
 @if (IsLoading){
     <p>Loading...</p>
@@ -17,7 +17,7 @@
     <ol>
     @foreach (string id  in VideoIds)
     {
-        <li><a href="videos/@id">@id</a></li>
+        <li><a href="?videos/@id">@id</a></li>
     }
     </ol>
     return;
