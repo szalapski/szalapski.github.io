@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "szalapski.github.io",
   "resources": {
-    "hash": "sha256-/t35ba31mVFunx/p/KXVZdJu/anqZ+STfcrgQFkEvOU=",
+    "hash": "sha256-8zy/tI+/8+UG19zC3fFX4UkPNuFjmzKpAek7I2NF+ic=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.746giovk6l.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -207,7 +207,7 @@
       "System.Xml.XmlSerializer.wasm": "sha256-V6RkNBUXGXfs/smUW8BTgt/7PcNy/cebx3h4cDsZNMY=",
       "System.Xml.XPath.wasm": "sha256-tRoot2qhkVzPkcCgYFSlaYwxOG3KhNAhdMEU6u5EUE4=",
       "System.Xml.XPath.XDocument.wasm": "sha256-D8MzlVualrX/ILIzcJ4/JwiJCwFKKTHsF65/ZmCY1pg=",
-      "szalapski.github.io.wasm": "sha256-Vvuq5W75PMTlwvZfzIoY08Mj1cUQvLBwnPh2ZQW3UAg=",
+      "szalapski.github.io.wasm": "sha256-RdjeVDx973mKsh30Vr8E6R03PfQi+03Yk0YPrpkdArs=",
       "WindowsBase.wasm": "sha256-iGHT5m6wAAWyQE8o6yHia7f5Aw9eaL1qG480wo/bMCY="
     }
   },
