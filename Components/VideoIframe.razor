@@ -16,5 +16,8 @@
     [Parameter, EditorRequired]
     public required string Id { get; init; }
 
-    private string Source => $"https://www.youtube.com/embed/{Id}";
+    private string Source =>
+        Id.StartsWith("list=")
+            ? $"https://www.youtube.com/embed/videoseries?{Id}"
+            : $"https://www.youtube.com/embed/{Id}";
 }
