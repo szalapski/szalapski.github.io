@@ -6,6 +6,10 @@
 
 <PageTitle>Szalaspki.github.io videos</PageTitle>
 
+@if (IsLoading){
+    <p>Loading...</p>
+    return;
+}
 
 @if (VideoId is null){
     <h1>All videos</h1>
@@ -16,14 +20,15 @@
         <li><a href="videos/@id">@id</a></li>
     }
     </ol>
+    return;
+}
+
+@if(VideoIds.Contains(VideoId)){
+    <VideoIframe Id="@VideoId"/>
 }
 else {
-    @if(VideoIds.Contains(VideoId)){
-        <VideoIframe Id="@VideoId"/>
-    }
-    else {
-        <p>Video with ID @VideoId not found.</p>
-    }
+    <p>Video with ID <pre>@VideoId</pre> not found.</p>
+}
 
 }
 
@@ -33,11 +38,13 @@ else {
     protected override async Task OnInitializedAsync()
     {
         VideoIds = await client.GetFromJsonAsync<IEnumerable<string>>("videos.txt") ?? [];
+        IsLoading = false;
     }
 
     [Parameter]
     public string? VideoId { get; init; } = null;
 
     private IEnumerable<string> VideoIds { get; set; } = [];
+    private bool IsLoading { get; set; } = true;
 
 }
