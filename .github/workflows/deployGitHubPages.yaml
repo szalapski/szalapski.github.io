@@ -38,3 +38,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v4
       with:
         folder: release/wwwroot # The folder the action should deploy.
+#done
