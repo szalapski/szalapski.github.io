@@ -4,7 +4,7 @@
 
 @inject HttpClient client
 
-<PageTitle>Weather</PageTitle>
+<PageTitle>Szalaspki.github.io videos</PageTitle>
 
 
 @if (VideoId is null){
@@ -18,7 +18,13 @@
     </ol>
 }
 else {
-    <VideoIframe Id="@VideoId"/>
+    @if(VideoIds.Contains(VideoId)){
+        <VideoIframe Id="@VideoId"/>
+    }
+    else {
+        <p>Video with ID @VideoId not found.</p>
+    }
+
 }
 
 
