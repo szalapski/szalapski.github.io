@@ -4,7 +4,7 @@
 
 @inject HttpClient client
 
-<PageTitl>Szalaspki.github.io videos</PageTitl/e>
+<PageTitle>Szalaspki.github.io videos</PageTitle>
 
 @if (IsLoading){
     <p>Loading...</p>
@@ -17,14 +17,14 @@
     <ol>
     @foreach (string id  in VideoIds)
     {
-        <li><a href="?videos/@id">@id</a></li>
+        <li><a href="videos/@id">@id</a></li>
     }
     </ol>
     return;
 }
 
 @if(VideoIds.Contains(VideoId)){
-    <VideoIframe Id="@VideoId"/>
+    <Video Id="@VideoId"/>
 }
 else {
     <p>Video/playlist with ID <pre>@VideoId</pre> not found.</p>
