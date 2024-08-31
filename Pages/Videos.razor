@@ -6,27 +6,34 @@
 
 <PageTitle>Szalapski.github.io videos</PageTitle>
 
-@if (IsLoading){
+@if (IsLoading)
+{
     <p>Loading...</p>
     return;
 }
 
-@if (VideoId is null){
+@if (VideoId is null)
+{
     <h1>All videos</h1>
 
-    <ol>
-    @foreach (string id  in VideoIds)
+    @foreach (string id in VideoIds)
     {
-        <li><a href="videos/@id">@id</a></li>
+        <a href="videos/@id" class="position-relative">
+            <div class="position-absolute border-1 "
+                style="background-color: transfparent; height: 200px; width: 300px; z-index:2;">
+            </div>
+            <Video IsPreview="true" Id="@id" />
+        </a>
     }
-    </ol>
     return;
 }
 
-@if(VideoIds.Contains(VideoId)){
-    <Video Id="@VideoId"/>
+@if (VideoIds.Contains(VideoId))
+{
+    <Video Id="@VideoId" />
 }
-else {
+else
+{
     <p>Video/playlist with ID <pre>@VideoId</pre> not found.</p>
 }
 

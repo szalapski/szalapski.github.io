@@ -1,12 +1,13 @@
-﻿
-<p>After clicking on the video, press <b>k</b> to play/pause and <b>f</b> for full-screen.</p>
-
-@if (IsPlaylist)
+﻿@if (!IsPreview)
 {
-    <p><em>This is a playlist</em>.  You can access any video in the playlist using the icon in the upper-right of the video.</p>
+    <p>After clicking on the video, press <b>k</b> to play/pause and <b>f</b> for full-screen.</p>
+    @if (IsPlaylist)
+    {
+        <p><em>This is a playlist</em>.  You can access any video in the playlist using the icon in the upper-right of the video.</p>
+    }
 }
 
-<div style="width: 560px; height: 315px;">
+<div style="width: @Width; height: @Height;">
     <embed src="@Source"
            wmode="transparent"
            type="video/mp4"
@@ -18,6 +19,12 @@
 @code {
     [Parameter, EditorRequired]
     public required string Id { get; init; }
+
+    [Parameter]
+    public bool IsPreview { get; init; } = false;
+
+    private string Height => IsPreview ? "200px" : "315px";
+    private string Width => IsPreview ? "300px" : "560px";
 
     private bool IsPlaylist => Id.StartsWith("list=");
 
