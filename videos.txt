@@ -1,9 +1,4 @@
 [
 	"list=PLwL0Myd7Dk1F0iQPGrjehze3eDpco1eVz",
 	"FrNqSLPaZLc",
-	"list=PLzmXDzfrSJcAXILKSK-7UDSRKm7ml_bvp",
-	"4oN5JShOs2I",
-	"D_Vg4uyYwEk",
-	"t4A-Ml8YHyM",
-	"R3ZJKN_5M44",
-	"ZyT-c0Zycnk"]
+	"list=PLzmXDzfrSJcAXILKSK-7UDSRKm7ml_bvp"]
