@@ -7,7 +7,7 @@
     }
 }
 
-<div style="width: @Width; height: @Height;">
+<div class="d-inline-block" style="width: @Width; height: @Height;">
     <embed src="@Source"
            wmode="transparent"
            type="video/mp4"
@@ -23,13 +23,13 @@
     [Parameter]
     public bool IsPreview { get; init; } = false;
 
-    private string Height => IsPreview ? "200px" : "315px";
-    private string Width => IsPreview ? "300px" : "560px";
+    private string Height => IsPreview ? "fit-content" : "315px";
+    private string Width => IsPreview ? "100%" : "560px";
 
     private bool IsPlaylist => Id.StartsWith("list=");
 
     private string Source =>
         IsPlaylist
-            ? $"https://www.youtube.com/embed/videoseries?{Id}"
-            : $"https://www.youtube.com/embed/{Id}";
+            ? $"https://www.youtube-nocookie.com/embed/videoseries?{Id}"
+            : $"https://www.youtube-nocookie.com/embed/{Id}";
 }

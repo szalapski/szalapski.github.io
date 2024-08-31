@@ -18,12 +18,14 @@
 
     @foreach (string id in VideoIds)
     {
+        <div class="d-inline-block">
         <a href="videos/@id" class="position-relative">
             <div class="position-absolute border-1 "
                 style="background-color: transfparent; height: 200px; width: 300px; z-index:2;">
             </div>
             <Video IsPreview="true" Id="@id" />
         </a>
+        </div>
     }
     return;
 }
