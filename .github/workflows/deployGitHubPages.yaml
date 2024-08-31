@@ -24,6 +24,10 @@ jobs:
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
 
+      # Copy index.html to 404.html to serve the same file when a file is not found (thus routing will work)
+    - name: Copy index.html to 404.html
+      run: cp release/wwwroot/index.html release/wwwroot/404.html
+
     # add .gitattributes file to tell GitHub pages to allow JS pages not as text
     - name: Add .gitattributes file
       run: echo "*.js binary" >> release/wwwroot/.gitattributes
