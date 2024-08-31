@@ -18,19 +18,38 @@
 
     @foreach (string id in VideoIds)
     {
-        <div class="d-inline-block">
-        <a href="videos/@id" class="position-relative">
-            <div class="position-absolute border-1 "
-                style="background-color: transfparent; height: 200px; width: 300px; z-index:2;">
-            </div>
-            <Video IsPreview="true" Id="@id" />
-        </a>
+        <div class="video-preview-container" @key="id">
+            <a href="videos/@id" class="position-relative">
+                <div class=" border-4 "
+                     style="height: 160px; width: 300px; z-index:1; top:0; left:0">
+                    <Video IsPreview="true" Id="@id" />
+                </div>
+                <div class="position-absolute border-1 "
+                     style="background-color: transparent; height: 160px; width: 300px; z-index:2; top:0; left:0">
+                </div>
+            </a>
         </div>
     }
+
+    <h2>Videos for a better life playlist</h2>
+
+    <div class="video-preview-container">
+        <a href="videos/@BetterLifePlaylistId" class="position-relative">
+            <div class="position-absolute border-1 "
+                 style="background-color: transparent; height: 160px; width: 300px; z-index:2; top:0; left:0">
+            </div>
+            <div class="position-absolute border-4 "
+                 style="height: 160px; width: 300px; z-index:1; top:0; left:0">
+                <Video IsPreview="true" Id="@BetterLifePlaylistId" IsStatic="true" />
+            </div>
+
+        </a>
+    </div>
     return;
+
 }
 
-@if (VideoIds.Contains(VideoId))
+@if (VideoIds.Contains(VideoId) || VideoId == @BetterLifePlaylistId)
 {
     <Video Id="@VideoId" />
 }
@@ -53,5 +72,7 @@ else
 
     private IEnumerable<string> VideoIds { get; set; } = [];
     private bool IsLoading { get; set; } = true;
+
+    private string BetterLifePlaylistId => "list=PLLZl7zpsXDt_V3GbguZU4uTrvJQRcKxbc";
 
 }

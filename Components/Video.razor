@@ -23,13 +23,15 @@
     [Parameter]
     public bool IsPreview { get; init; } = false;
 
+    [Parameter]
+    public bool IsStatic { get; init; } = false;
+
     private string Height => IsPreview ? "fit-content" : "315px";
     private string Width => IsPreview ? "100%" : "560px";
 
     private bool IsPlaylist => Id.StartsWith("list=");
 
-    private string Source =>
-        IsPlaylist
-            ? $"https://www.youtube-nocookie.com/embed/videoseries?{Id}"
-            : $"https://www.youtube-nocookie.com/embed/{Id}";
+    private string EmbedToken => IsPlaylist ? $"videoseries?{Id}&" : $"{Id}?";
+
+    private string Source => $"https://www.youtube-nocookie.com/embed/{EmbedToken}rel=0&modestbranding=1";
 }
