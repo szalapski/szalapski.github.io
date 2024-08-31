@@ -160,3 +160,8 @@ main[b-eph1025eov] {
         overflow-y: auto;
     }
 }
+/* /Pages/Videos.razor.rz.scp.css */
+.video-preview-container[b-35tsatql5i]{
+    display: inline-block;
+    margin-inline: 4px;
+}
